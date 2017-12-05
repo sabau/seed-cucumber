@@ -1,6 +1,6 @@
 import { protractor } from 'protractor';
 import { serenity } from 'serenity-js';
-import { Actor, BrowseTheWeb, Open } from 'serenity-js/lib/screenplay-protractor';
+import { Actor, BrowseTheWeb, Open, ResizeBrowserWindow } from 'serenity-js/lib/screenplay-protractor';
 
 import { CheckIfDisplayedMessage, EnterTheName } from '../../spec/greeter';
 
@@ -16,6 +16,13 @@ export = function steps() {
         return stage.theActorCalled(actor).attemptsTo(
             Open.browserOn('https://www.angularjs.org/'),
             EnterTheName.of(name),
+            ResizeBrowserWindow.toMaximum()
+        );
+    });
+
+    this.When(/^(.*) expand the screen$/, function(actor: string) {
+        return stage.theActorCalled(actor).attemptsTo(
+            ResizeBrowserWindow.toMaximum()
         );
     });
 

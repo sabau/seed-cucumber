@@ -8,7 +8,8 @@ exports.config = {
 
     baseUrl: 'https://www.angularjs.org/',
 
-    seleniumServerJar: seleniumJar,
+    seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
+    //seleniumServerJar: seleniumJar,
 
     // https://github.com/angular/protractor/blob/master/docs/timeouts.md
     allScriptsTimeout: 110000,
